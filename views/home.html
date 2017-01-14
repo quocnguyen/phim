@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <title>Phim cũng lắm gian truân</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <section class="pure-g">
+        <div class="pure-u-1">
+          <img src="//i.imgur.com/8QjKP3xl.jpg" class="pure-img">
+
+          <form class="pure-form" method="get" action="/search">
+            <fieldset>
+              {{#csrfToken}}
+              <input class="pure-input-1" type="hidden" name="_csrf" value="{{csrfToken}}">
+              {{/csrfToken}}
+              <input class="pure-input-1" type="text" name="q" placeholder="Nhập Tên Phim">
+              <button class="pure-button pure-input-1 pure-button-primary" type="submit">
+                Tìm
+              </button>
+            </fieldset>
+          </form>
+
+          <div style="text-align: left;">
+            <h3 class="green">Cập nhật:</h3>
+            <ol>
+              <li>Thêm 2 nguồn phim với mã số lần lượt BAM, PBH</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script src="/js/ga.js"></script>
+</body>
+</html>
+
+
+
+
+

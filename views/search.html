@@ -1,0 +1,87 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+
+<!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-old-ie-min.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
+<!--<![endif]-->
+
+<style type="text/css">
+  .container {
+    max-width: 600px;
+    text-align: center;
+  }
+  .wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .search-results {
+    text-align: left;
+  }
+  html, button, input, select, textarea,
+  .pure-g [class *= "pure-u"] {
+      font-family: monospace;
+      font-size: 20px;
+  }
+</style>
+<div class="wrapper">
+  <div class="container">
+    <section class="pure-g">
+      <div class="pure-u-1">
+        <img class="pure-img" src="//i.imgur.com/uh68Nsm.jpg">
+        <form class="pure-form" method="get" action="/search">
+            {{#csrfToken}}
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            {{/csrfToken}}
+            <input class="pure-input-1" type="text" name="q" placeholder="Nhập Tên Phim" value="{{q}}">
+            <button class="pure-button pure-input-1 pure-button-primary" type="submit">
+              Tìm
+            </button>
+        </form>
+      </div>
+    </section>
+
+
+    <section class="pure-g">
+      <div class="pure-u-1">
+        <ul class="search-results">
+          {{#videos}}
+          <li>
+            <div>
+              <a href="/watch?id={{hash}}">{{title}}</a>
+              <small>Mã số [{{provider}}-{{ id }}]</small>
+            </div>
+          </li>
+          {{/videos}}
+        </ul>
+      </div>
+    </section>
+
+    {{^videos}}
+    <section class="pure-g">
+      <div class="pure-u-1">
+        <div class="alert">
+          <p>Không tìm thấy phim, hãy thử tên khác</p>
+        </div>
+      </div>
+    </section>
+    {{/videos}}
+
+  </div>
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-90215707-1', 'auto');
+  ga('send', 'pageview');
+
+</script>

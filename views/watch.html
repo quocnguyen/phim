@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+  <!--[if lte IE 8]>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
+  <!--<![endif]-->
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <title>Phim cũng lắm gian truân</title>
+  <link href="//vjs.zencdn.net/5.4.6/video-js.min.css" rel="stylesheet">
+  <script src="//vjs.zencdn.net/5.4.6/video.min.js"></script>
+  <script src="/js/videojs-resolution-switcher.js"></script>
+  <style type="text/css">
+    .vjs-resolution-button {
+      color: #ccc;
+      font-family: VideoJS;
+    }
+
+    .vjs-resolution-button .vjs-resolution-button-staticlabel:before {
+      content: '\f110';
+      font-size: 1.8em;
+      line-height: 1.67;
+    }
+
+    .vjs-resolution-button .vjs-resolution-button-label {
+        font-size: 1em;
+        line-height: 3em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        box-sizing: inherit;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .vjs-resolution-button ul.vjs-menu-content {
+      width: 4em !important;
+    }
+
+    .vjs-resolution-button .vjs-menu {
+      left: 0;
+    }
+
+    .vjs-resolution-button .vjs-menu li {
+      text-transform: none;
+      font-size: 1em;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <section class="pure-g">
+        <div class="pure-u-1">
+          <h3>
+            [<a href="javascript:history.go(-1)">Quay lại</a>]
+            {{#video.title}}
+              :: <span>{{video.title}}</span>
+            {{/video.title}}
+          </h3>
+
+          <div class="videocontent">
+            <video poster="{{video.thumb}}" id="phim-clgt-vn" class="video-js vjs-default-skin vjs-16-9 vjs-big-play-centered"
+              controls width="640" height="auto"
+              data-setup='{"fluid":true}'>
+              {{#medias}}
+                <source src="{{url}}" type="video/mp4" label="{{label}}" res="{{resolution}}" />
+             {{/medias}}
+            </video>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+window.HELP_IMPROVE_VIDEOJS = false
+var player = window.videojs('phim-clgt-vn')
+player.ready(function () {
+  player.videoJsResolutionSwitcher({
+    default: 'low',
+    dynamicLabel: true
+  })
+
+  player.on('error', function (e, whatever) {
+    // switch source
+  })
+})
+</script>

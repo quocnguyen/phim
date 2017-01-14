@@ -1,0 +1,17 @@
+  .container {
+    max-width: 600px;
+    text-align: center;
+  }
+  .wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  html, button, input, select, textarea,
+  .pure-g [class *= "pure-u"] {
+      font-family: monospace;
+      font-size: 20px;
+  }
+
+  .green {
+    color: #88B04B;
+  }

@@ -1,0 +1,37 @@
+{
+  "name": "phim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "ava"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "compression": "^1.6.2",
+    "consolidate": "^0.14.5",
+    "cookie-parser": "^1.4.3",
+    "csurf": "^1.9.0",
+    "dotenv": "^4.0.0",
+    "escape-html": "^1.0.3",
+    "fast-json-parse": "^1.0.2",
+    "finalhandler": "^0.5.1",
+    "got": "^6.7.1",
+    "helmet": "^3.4.0",
+    "mustache": "^2.3.0",
+    "now-logs": "0.0.7",
+    "purecss": "^0.6.2",
+    "require-dir": "^0.3.1",
+    "router": "^1.1.4",
+    "serve-static": "^1.11.1",
+    "tunnel": "0.0.4"
+  },
+  "devDependencies": {
+    "ava": "^0.17.0"
+  }
+}
