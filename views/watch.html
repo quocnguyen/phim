@@ -2,13 +2,6 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
-  <!--[if lte IE 8]>
-    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-old-ie-min.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/grids-responsive-min.css">
-  <!--<![endif]-->
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <title>Phim cũng lắm gian truân</title>
   <link href="//vjs.zencdn.net/5.4.6/video-js.min.css" rel="stylesheet">
@@ -68,6 +61,7 @@
 
           <div class="videocontent">
             <video poster="{{video.thumb}}" id="phim-clgt-vn" class="video-js vjs-default-skin vjs-16-9 vjs-big-play-centered"
+              preload="auto"
               controls width="640" height="auto"
               data-setup='{"fluid":true}'>
               {{#medias}}
@@ -93,7 +87,9 @@ player.ready(function () {
   })
 
   player.on('error', function (e, whatever) {
-    // switch source
+    player.currentResolution('360p', function(_player, _sources, _label){
+      return _player.src(_sources[_sources.length - 1]);
+    })
   })
 })
 </script>
