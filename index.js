@@ -1,6 +1,6 @@
 'use strict'
 
-require('dotenv').config({ silient: true })
+require('dotenv').config({ silent: true })
 require('now-logs')('phim.clgt.vn')
 require('./lib/array-concatAll')
 
